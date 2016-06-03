@@ -9,21 +9,27 @@ class Item
    @prod_cost = prod_cost
  end
 
- def type
+ def type #RUN THIS BEFORE IMPORTED METHOD`
 
    if @prod_type == "book" || @prod_type == "food" || @prod_type == "med"
      puts "your item is tax exempt and your cost is #{@prod_cost}"
-   elsif @prod_type == "food"
-     puts "your item is tax exempt and your cost is #{@prod_cost}"
-   elsif @prod_type == "med"
-     puts "your item is tax exempt and your cost is #{@prod_cost}"
+  #  elsif @prod_type == "food"
+  #    puts "your item is tax exempt and your cost is #{@prod_cost}"
+  #  elsif @prod_type == "med"
+  #    puts "your item is tax exempt and your cost is #{@prod_cost}"
    else
-     puts "your item is NOT tax exempt and your cost is #{@prod_cost * 0.1}"
+     @prod_cost = @prod_cost * 1.1
+     puts "your item is NOT tax exempt and your cost is #{@prod_cost * 1.1}"
    end
 
  end
 
- def name
+ def imported #RUN THIS ONLY AFTER TYPE METHOD
+
+   if @prod_import == "yes"
+     @prod_cost = @prod_cost * 1.05
+     puts "#{@prod_name} has an import tax making it cost #{@prod_cost}"
+   end
 
  end
 
