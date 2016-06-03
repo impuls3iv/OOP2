@@ -18,8 +18,8 @@ class Item
   #  elsif @prod_type == "med"
   #    puts "your item is tax exempt and your cost is #{@prod_cost}"
    else
-     @prod_cost = @prod_cost * 1.1
      puts "your item is NOT tax exempt and your cost is #{@prod_cost * 1.1}"
+     @prod_cost = @prod_cost * 1.1
    end
 
  end
@@ -39,9 +39,35 @@ end
 
 
 
-class Receipt < Item
+class Receipt
+
+  attr_accessor :items
+
+  def initialize
+    @items = []
+  end
+
+  def add_item(new_item)
+    @items.push(*new_item)
+  end
 
 end
+
+#item1 = Item.new('choco', 'food', 'yes', 10)
+#item2 = Item.new('gum', 'candy', 'yes', 10)
+#item1.type
+#item1.imported
+#item2.type
+#item2.imported
+#receipt = Receipt.new
+#receipt.add_item(item2)
+
+
+
+
+
+
+
 #
 # puts "What is the name of your first item"
 # item_name = gets.chomp!
