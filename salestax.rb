@@ -1,6 +1,6 @@
 class Item
 
- attr_accessor :name, :type, :imported, :cost #methods to do @name = name
+ attr_accessor :prod_name, :prod_type, :prod_import, :prod_cost #methods to do @name = name
 
  def initialize(prod_name, prod_type, prod_import, prod_cost)
    @prod_name = prod_name
@@ -47,20 +47,26 @@ class Receipt
     @items = []
   end
 
-  def add_item(new_item)
-    @items.push(*new_item)
+  def add_item(*new_item) #splat command to take multiple items
+    @items += new_item
+  end
+
+  def publish
+    @items.each do |i|
+      puts "Item: #{i} - Name: #{i.prod_name} - Type: #{i.prod_type} - Imported: #{i.prod_import} - Cost: #{i.prod_cost}"
+    end
   end
 
 end
 
-#item1 = Item.new('choco', 'food', 'yes', 10)
-#item2 = Item.new('gum', 'candy', 'yes', 10)
-#item1.type
-#item1.imported
-#item2.type
-#item2.imported
-#receipt = Receipt.new
-#receipt.add_item(item2)
+# item1 = Item.new('choco', 'food', 'yes', 10)
+# item2 = Item.new('gum', 'candy', 'yes', 10)
+# item1.type
+# item1.imported
+# item2.type
+# item2.imported
+# receipt = Receipt.new
+# receipt.add_item(item2)
 
 
 
