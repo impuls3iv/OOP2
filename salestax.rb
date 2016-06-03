@@ -52,22 +52,27 @@ class Receipt
   end
 
   def publish
+    total_cost = 0
     @items.each do |i|
       puts "Item: #{i} - Name: #{i.prod_name} - Type: #{i.prod_type} - Imported: #{i.prod_import} - Cost: #{i.prod_cost}"
     end
+    @items.each do |x|
+      total_cost = total_cost + x.prod_cost
+    end
+    puts "Your total cost is #{total_cost}"
   end
 
 end
 
-# item1 = Item.new('choco', 'food', 'yes', 10)
-# item2 = Item.new('gum', 'candy', 'yes', 10)
-# item1.type
-# item1.imported
-# item2.type
-# item2.imported
-# receipt = Receipt.new
-# receipt.add_item(item2)
-
+ item1 = Item.new('choco', 'food', 'yes', 10)
+ item2 = Item.new('gum', 'candy', 'yes', 10)
+ item1.type
+ item1.imported
+ item2.type
+ item2.imported
+ receipt = Receipt.new
+ receipt.add_item(item1, item2)
+ puts receipt.publish
 
 
 
